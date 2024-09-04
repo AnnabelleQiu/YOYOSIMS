@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YOYOSIMS</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <header>
+        <h1>YOYOSIMS</h1>
+    </header>
+    <main>
+        <!-- Back 按钮，初始状态隐藏 -->
+        <button id="backButton" style="display: none;" onclick="goBack()">Back</button>
+        
+        <!-- 初始页面 -->
+        <div id="initialPage" class="content-wrapper">
+            <section class="content-section">
+                <img src="img/collection/ReadyCharacter.jpg" alt="现成人物">
+                <h2><a href="#" onclick="showSection('characters'); return false;">现成人物</a></h2>
+            </section>
+            
+            <section class="content-section">
+                <img src="img/collection/ShenTianYou.jpg" alt="个性化定制">
+                <h2><a href="#" onclick="showSection('custom'); return false;">个性化定制</a></h2>
+            </section>
+        </div>
+        
+        <!-- 现成人物子页面 -->
+        <section id="characters" style="display: none;">
+            <h2>现成人物</h2>
+            <div class="sub-section">
+                <div class="content-section">
+                    <img src="img/male/CHUN.jpg" alt="男娃">
+                    <h2><a href="characters/male.html">男娃</a></h2>
+                </div>
+                <div class="content-section">
+                    <img src="img/female/GreenFairy.jpg" alt="女娃">
+                    <h2><a href="characters/female.html">女娃</a></h2>
+                </div>
+            </div>
+        </section>
+        
+        <!-- 个性化定制子页面 -->
+        <section id="custom" style="display: none;">
+            <h2>个性化定制</h2>
+            <div class="sub-section">
+                <div class="content-section">
+                    <img src="img/collection/ZhangQiLing.jpg" alt="人物定制">
+                    <h2><a href="custom/character.html">人物定制</a></h2>
+                </div>
+                <div class="content-section">
+                    <img src="img/collection/AvocadoMod.jpg" alt="模组定制">
+                    <h2><a href="custom/module.html">模组定制</a></h2>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>© 2024 YOYOSIMS. All Rights Reserved.</p>
+    </footer>
+    <script src="js/scripts.js"></script>
+</body>
+</html>

@@ -1,0 +1,97 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #ffe4e1; /* 浅粉色背景 */
+}
+
+header {
+    background-color: #ffffff; /* 白色背景 */
+    color: #ffe4e1;
+    padding: 20px 0;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* 添加阴影 */
+}
+
+header h1 {
+    margin: 0;
+}
+
+main {
+    padding: 40px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #fff; /* 白色背景 */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* 添加阴影 */
+    border-radius: 8px; /* 圆角 */
+    width: 80%;
+    max-width: 800px;
+    margin: 20px auto; /* 居中对齐 */
+}
+
+.content-wrapper {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    flex-wrap: wrap; /* 当屏幕较小的时候换行 */
+}
+
+.content-section {
+    text-align: center;
+    width: 45%; /* 调整宽度使两个部分在同一行 */
+    margin-bottom: 40px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* 添加过渡效果 */
+}
+
+.content-section:hover {
+    transform: translateY(-5px); /* 悬停时上移效果 */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* 悬停时阴影增强 */
+}
+
+.content-section img {
+    width: 100%;
+    height: auto;
+    max-width: 200px; /* 设置图片的最大宽度 */
+    border-radius: 8px; /* 圆角 */
+    transition: transform 0.3s ease; /* 添加过渡效果 */
+}
+
+.content-section img:hover {
+    transform: scale(1.05); /* 悬停时放大效果 */
+}
+
+.content-section h2 {
+    margin-top: 10px;
+    color: #ffe4e1; /* 主题淡粉色字体 */
+    transition: color 0.3s ease; /* 添加过渡效果 */
+}
+
+.content-section h2 a {
+    color: #ffe4e1; /* 主题淡粉色字体 */
+    text-decoration: none;
+    transition: color 0.3s ease; /* 添加过渡效果 */
+}
+
+.content-section h2 a:hover {
+    color: #333; /* 悬停时变为深灰色 */
+}
+
+.sub-section {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    flex-wrap: wrap; /* 当屏幕较小的时候换行 */
+    margin-top: 20px;
+}
+
+footer {
+    background-color: #fff; /* 白色背景 */
+    color: #ffe4e1;
+    text-align: center;
+    padding: 10px 0;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1); /* 添加阴影 */
+}
