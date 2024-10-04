@@ -11,14 +11,22 @@
         <h1>YOYOSIMS</h1>
     </header>
     <main>
+        <!-- Back 按钮，初始状态隐藏 -->
+        <button id="backButton" style="display: none;" onclick="goBack()">Back</button>
+        
+        <!-- 现成人物 Section -->
         <section class="content-section">
             <img src="img/collection/ReadyCharacter.jpg" alt="现成人物">
-            <h2><a href="#" onclick="showSection('characters')">现成人物</a></h2>
+            <h2><a href="#" onclick="showSection('characters'); return false;">现成人物</a></h2>
         </section>
+        
+        <!-- 个性化定制 Section -->
         <section class="content-section">
             <img src="img/collection/ShenTianYou.jpg" alt="个性化定制">
-            <h2><a href="#" onclick="showSection('custom')">个性化定制</a></h2>
+            <h2><a href="#" onclick="showSection('custom'); return false;">个性化定制</a></h2>
         </section>
+        
+        <!-- 现成人物子页面 -->
         <section id="characters" style="display: none;">
             <h2>现成人物</h2>
             <div class="sub-section">
@@ -32,6 +40,8 @@
                 </div>
             </div>
         </section>
+        
+        <!-- 个性化定制子页面 -->
         <section id="custom" style="display: none;">
             <h2>个性化定制</h2>
             <div class="sub-section">

@@ -2,14 +2,15 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f4f4f4;
+    background-color: #fbbcdf;
 }
 
 header {
-    background-color: #333;
-    color: #fff;
-    padding: 10px 0;
+    background-color: #f7fcfd;
+    color: #fbbcdf;
+    padding: 20px 0;
     text-align: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 header h1 {
@@ -17,7 +18,7 @@ header h1 {
 }
 
 main {
-    padding: 20px;
+    padding: 40px 20px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -25,28 +26,43 @@ main {
 
 .content-section {
     text-align: center;
-    width: 45%;
+    width: 100%;
+    max-width: 400px; /* 限制图片和内容区域的最大宽度 */
     margin-bottom: 40px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden; /* 圆角边框适用于内容 */
+    background-color: #fff; /* 内容背景白色，让它更突出 */
 }
 
 .content-section img {
     width: 100%;
     height: auto;
+    max-height: 250px; /* 限制图片的最大高度 */
+    object-fit: cover; /* 保持图片的比例并裁剪溢出 */
+    animation: fadeIn 1s ease-in-out;
 }
 
 .content-section h2 {
     margin-top: 10px;
+    color: #333;
 }
 
 .content-section h2 a {
     color: #333;
     text-decoration: none;
+    transition: color 0.3s ease; /* 添加悬停时的颜色变化 */
+}
+
+.content-section h2 a:hover {
+    color: #fbbcdf;
 }
 
 .sub-section {
     display: flex;
     justify-content: space-around;
     width: 100%;
+    flex-wrap: wrap; /* 当屏幕较小的时候换行 */
 }
 
 footer {
@@ -57,4 +73,36 @@ footer {
     position: fixed;
     width: 100%;
     bottom: 0;
+    box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* 动画效果 */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* 按钮样式 */
+button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px; /* 调整按钮的内边距 */
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 8px 4px; /* 增加按钮之间的间距 */
+    cursor: pointer;
+    border: none;
+    border-radius: 4px;
+    transition: background-color 0.3s ease, transform 0.1s ease; /* 添加点击效果的变化 */
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+button:active {
+    background-color: #3e8e41;
+    transform: scale(0.95); /* 点击时按钮稍微缩小 */
 }
