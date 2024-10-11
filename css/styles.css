@@ -1,97 +1,273 @@
+/* 粉色动态星空背景 */
+header {
+    position: relative;
+    width: 100%;
+    height: 300px; 
+    background: linear-gradient(135deg, #f8bbd0, #ffe4e1); /* 粉色渐变背景 */
+    overflow: hidden;
+    z-index: 0; /* 确保 header 背景在较低层级 */
+}
+
+.page-section {
+    padding: 100px 20px;
+    background-color: #ffffff; /* 保持页面主体为白色 */
+}
+
+
+header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(closest-side, #fff 20%, transparent), /* 大星星 */
+                radial-gradient(closest-side, rgba(255, 255, 255, 0.6) 8%, transparent), /* 小星星 */
+                radial-gradient(closest-side, rgba(255, 255, 255, 0.3) 3%, transparent); /* 闪烁点点 */
+    background-size: 100px 100px, 200px 40px, 200px 1000px; /* 更小的星星 */
+    background-position: 0 0, 50px 50px, 100px 100px;
+    animation: move-stars 40s linear infinite, twinkling 3s ease-in-out infinite;
+    opacity: 0.4;
+    z-index: -1;/* 确保星星背景在底层 */
+}
+
+
+@keyframes move-stars {
+    from {
+        background-position: 0 0, 50px 50px, 100px 100px;
+    }
+    to {
+        background-position: -600px 600px, -150px 150px, -300px 300px;
+    }
+}
+
+/* 星星元素的样式 */
+.star {
+    position: absolute;
+    z-index: -2; /* 更低的层级 */
+    background-color: white;
+    border-radius: 50%;
+    box-shadow: 0 0 10px white, 0 0 20px rgba(255, 255, 255, 0.5); /* 增强星星的发光效果 */
+    animation: sparkle 2.5s infinite ease-in-out;
+}
+
+/* 控制星星大小、位置的动画 */
+@keyframes random-position-size {
+    0%, 100% {
+        top: calc(10% + (80% * var(--random1)));
+        left: calc(10% + (80% * var(--random2)));
+        width: calc(2px + 4px * var(--random3)); /* 小星星的大小更小 */
+        height: calc(2px + 4px * var(--random3));
+    }
+}
+
+/* 生成随机星星 */
+.star {
+    --random1: calc(var(--random-factor1) * 13); /* 随机生成位置 */
+    --random2: calc(var(--random-factor2) * 1);
+    --random3: calc(var(--random-factor3) * 1); /* 随机大小 */
+    animation: random-position-size 5s infinite;
+}
+
+
+
+
+
+
+
+/* YOYOSIMS 标题样式 */
+header h1 {
+    margin: 0;
+    position: relative;
+    z-index: 10;
+    color: #fff;
+    font-size: 72px;
+    font-weight: bold;
+    text-align: center;
+    font-family: 'Comic Sans MS', cursive, sans-serif;
+    text-shadow: 4px 4px 10px rgba(85, 228, 247, 0.1);
+    padding: 20px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.2s ease-in-out;
+    border-radius: 50px;
+    
+}
+
+/* 鼠标悬停时的果冻效果 */
+header h1.jelly {
+    animation: jelly 0.6s ease;
+}
+
+/* 更细腻的果冻弹跳效果 */
+@keyframes jelly {
+    0% {
+        transform: scale(1, 1) translate(0, 0);
+    }
+    30% {
+        transform: scale(1.1, 0.9) translate(0, 0); /* 轻微横向拉伸 */
+    }
+    50% {
+        transform: scale(0.95, 1.05) translate(0, 0); /* 轻微竖向拉伸 */
+    }
+    70% {
+        transform: scale(1.05, 0.95) translate(0, 0); /* 再次微微横向拉伸 */
+    }
+    100% {
+        transform: scale(1, 1) translate(0, 0); /* 回到初始状态 */
+    }
+}
+
+/* 鼠标离开后的弹回效果 */
+@keyframes bounce-back {
+    0% {
+        transform: translateX(8px); /* 轻微右移 */
+    }
+    30% {
+        transform: translateX(-4px); /* 向左微调 */
+    }
+    50% {
+        transform: translateX(3px); /* 再次微微右移 */
+    }
+    70% {
+        transform: translateX(-2px); /* 再次微微左移 */
+    }
+    100% {
+        transform: translateX(0); /* 最后回到原位 */
+    }
+}
+
+@keyframes bounce-back-left {
+    0% {
+        transform: translateX(-8px); /* 轻微左移 */
+    }
+    30% {
+        transform: translateX(4px); /* 向右微调 */
+    }
+    50% {
+        transform: translateX(-3px); /* 再次微微左移 */
+    }
+    70% {
+        transform: translateX(2px); /* 再次微微右移 */
+    }
+    100% {
+        transform: translateX(0); /* 最后回到原位 */
+    }
+
+}
+
+
+@keyframes glow {
+    0% {
+        text-shadow: 0 0 10px rgba(255, 255, 255, 0.6), 0 0 20px rgba(255, 255, 255, 0.4);
+    }
+    100% {
+        text-shadow: 0 0 20px rgba(255, 255, 255, 0.8), 0 0 30px rgba(255, 255, 255, 0.6);
+    }
+}
+
+/* 导航按钮样式 */
+.nav-button {
+    background-color: rgba(248, 187, 208, 0.8); /* 透明的浅粉色背景 */
+    color: #fff;
+    padding: 10px 20px;
+    margin: 5px;
+    border: 2px solid #fff; /* 白色边框 */
+    border-radius: 20px;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* 添加按钮阴影，使其更加突出 */
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    z-index: 10; /* 提高按钮的 z-index，使其位于背景之上 */
+    position: relative; /* 确保 z-index 生效 */
+}
+
+/* 鼠标悬停时的 QQ 弹跳效果 */
+.nav-button:hover {
+    animation: jelly 0.6s ease; /* 悬停时的果冻弹跳动画 */
+    background-color: rgba(244, 143, 177, 0.8); /* 颜色变化 */
+    transform: scale(1.1); /* 悬停时轻微放大 */
+}
+
+
+
+.nav-button:active {
+    transform: translateY(0) scale(0.98); /* 缩小效果 */
+    transition: transform 0.2s ease;
+}
+
+
+
+/* 页面主体样式 */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #ffe4e1; /* 浅粉色背景 */
+    background-color: #ffe4e1;
+    overflow-x: hidden;
 }
 
-header {
-    background-color: #ffffff; /* 白色背景 */
-    color: #ffe4e1;
-    padding: 20px 0;
-    text-align: center;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* 添加阴影 */
-}
-
-header h1 {
-    margin: 0;
+.page-section {
+    padding: 100px 20px;
 }
 
 main {
-    padding: 40px 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background-color: #fff; /* 白色背景 */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* 添加阴影 */
-    border-radius: 8px; /* 圆角 */
     width: 80%;
     max-width: 800px;
-    margin: 20px auto; /* 居中对齐 */
+    margin: 20px auto;
 }
 
 .content-wrapper {
     display: flex;
     justify-content: space-around;
     width: 100%;
-    flex-wrap: wrap; /* 当屏幕较小的时候换行 */
+    flex-wrap: wrap;
 }
 
 .content-section {
     text-align: center;
-    width: 45%; /* 调整宽度使两个部分在同一行 */
+    width: 45%;
     margin-bottom: 40px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease; /* 添加过渡效果 */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .content-section:hover {
-    transform: translateY(-5px); /* 悬停时上移效果 */
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* 悬停时阴影增强 */
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
 .content-section img {
     width: 100%;
     height: auto;
-    max-width: 200px; /* 设置图片的最大宽度 */
-    border-radius: 8px; /* 圆角 */
-    transition: transform 0.3s ease; /* 添加过渡效果 */
+    max-width: 200px;
+    border-radius: 8px;
+    transition: transform 0.3s ease;
 }
 
 .content-section img:hover {
-    transform: scale(1.05); /* 悬停时放大效果 */
-}
-
-.content-section h2 {
-    margin-top: 10px;
-    color: #ffe4e1; /* 主题淡粉色字体 */
-    transition: color 0.3s ease; /* 添加过渡效果 */
-}
-
-.content-section h2 a {
-    color: #ffe4e1; /* 主题淡粉色字体 */
-    text-decoration: none;
-    transition: color 0.3s ease; /* 添加过渡效果 */
-}
-
-.content-section h2 a:hover {
-    color: #333; /* 悬停时变为深灰色 */
-}
-
-.sub-section {
-    display: flex;
-    justify-content: space-around;
-    width: 100%;
-    flex-wrap: wrap; /* 当屏幕较小的时候换行 */
-    margin-top: 20px;
+    transform: scale(1.05);
 }
 
 footer {
-    background-color: #fff; /* 白色背景 */
+    background-color: #fff;
     color: #ffe4e1;
     text-align: center;
     padding: 10px 0;
     position: fixed;
     width: 100%;
     bottom: 0;
-    box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1); /* 添加阴影 */
+    box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* 鼠标粒子效果 */
+.particle {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9999;
+    opacity: 1;
+    box-shadow: 0 0 10px rgba(255, 182, 193, 0.9), 0 0 20px rgba(255, 182, 193, 0.6); /* 粉色发光效果 */
+    transition: transform 1.5s, opacity 1.5s;
 }
